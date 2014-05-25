@@ -256,9 +256,9 @@ let g:UltiSnipsSnippetDirectories=["bundle/vim-snippets/UltiSnips"]
 map <leader>td <Plug>TaskList
 
 
-map <leader>em:call ExtractMethod()<CR>
-map <leader>lp :call LocalVariableToParameter()<CR>
-map <leader>rn :call RenameVariable()<CR>
-map <leader>rm :call RemoveParameter()<CR>
-map <leader>ro :call ReorderParameters()<CR>
-map <leader>ic :call IntroduceConstant()<CR>
+"map <leader>em:call ExtractMethod()<CR>
+"map <leader>lp :call LocalVariableToParameter()<CR>
+"map <leader>rn :call RenameVariable()<CR>
+"map <leader>rm :call RemoveParameter()<CR>
+"map <leader>ro :call ReorderParameters()<CR>
+"map <leader>ic :call IntroduceConstant()<CR>
