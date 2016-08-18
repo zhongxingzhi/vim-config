@@ -1,41 +1,43 @@
+set nocompatible
 filetype off                   " required!
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+"git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
 " let Vundle manage Vundle
 " required!
-Bundle 'gmarik/vundle'
-
+Plugin 'VundleVim/Vundle.vim'
 " original repos on github
-Bundle 'tpope/vim-fugitive'
-Bundle 'Lokaltog/vim-easymotion'
-Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
-Bundle 'tpope/vim-rails.git'
+Plugin 'tpope/vim-fugitive'
+Plugin 'Lokaltog/vim-easymotion'
+Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
+Plugin 'tpope/vim-rails.git'
 " vim-scripts repos
-Bundle 'L9'
-Bundle 'minibufexpl.vim'
-Bundle 'FuzzyFinder'
-Bundle 'OmniCppComplete'
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'tomasr/molokai'
-Bundle 'majutsushi/tagbar'
-Bundle 'vim-scripts/TaskList.vim'
-Bundle 'kien/ctrlp.vim'
-Bundle 'Lokaltop/vim-powerline'
-Bundle 'nathanaelkane/vim-indent-guides'
-Bundle 'bronson/vim-trailing-whitespace'
-Bundle 'Lokaltog/vim-easymotion'
-Bundle 'Valloric/YouCompleteMe'
-Bundle 'SirVer/ultisnips'
-Bundle 'scrooloos/nerdcommenter'
-Bundle 'tpope/vim-surround'
-Bundle 'godlygeek/tabular'
-Bundle 'mileszs/ack.vim'
-"Bundle 'srooloose/syntastic'
-"Bundle 'terryma/vim-multiple-coursors'
-Bundle 'scrooloose/nerdtree'
-"Bundle 'vim-scripts/refactor'
+Plugin 'L9'
+Plugin 'minibufexpl.vim'
+Plugin 'FuzzyFinder'
+Plugin 'OmniCppComplete'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'tomasr/molokai'
+Plugin 'majutsushi/tagbar'
+Plugin 'vim-scripts/TaskList.vim'
+Plugin 'kien/ctrlp.vim'
+Plugin 'Lokaltop/vim-powerline'
+Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'bronson/vim-trailing-whitespace'
+Plugin 'Lokaltog/vim-easymotion'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'SirVer/ultisnips'
+Plugin 'scrooloos/nerdcommenter'
+Plugin 'tpope/vim-surround'
+Plugin 'godlygeek/tabular'
+Plugin 'mileszs/ack.vim'
+"Plugin 'srooloose/syntastic'
+"Plugin 'terryma/vim-multiple-coursors'
+Plugin 'scrooloose/nerdtree'
+"Plugin 'vim-scripts/refactor'
 
 syntax enable
 syntax on
@@ -86,13 +88,13 @@ filetype indent on
 "autocmd FileType python set list
 "
 " Brief help
-" :BundleList          - list configured bundles
-" :BundleInstall(!)    - install(update) bundles
-" :BundleSearch(!) foo - search(or refresh cache first) for foo
-" :BundleClean(!)      - confirm(or auto-approve) removal of unused bundles
+" :PluginList          - list configured bundles
+" :PluginInstall(!)    - install(update) bundles
+" :PluginSearch(!) foo - search(or refresh cache first) for foo
+" :PluginClean(!)      - confirm(or auto-approve) removal of unused bundles
 "
 " see :h vundle for more details or wiki for FAQ
-" NOTE: comments after Bundle command are not allowed..
+" NOTE: comments after Plugin command are not allowed..
 "
 """"""miniBufExpl"""""""""""""""""""""""""""""
 
