@@ -1,47 +1,70 @@
 set nocompatible
 filetype off                   " required!
 
-"git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 " let Vundle manage Vundle
 " required!
-Plugin 'VundleVim/Vundle.vim'
+Bundle 'gmarik/Vundle.vim'
+
 " original repos on github
-Plugin 'tpope/vim-fugitive'
-Plugin 'Lokaltog/vim-easymotion'
-Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
-Plugin 'tpope/vim-rails.git'
+Bundle 'vim-scripts/a.vim'
+Bundle 'tpope/vim-fugitive'
+Bundle 'Lokaltog/vim-easymotion'
+Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
+Bundle 'tpope/vim-rails.git'
 " vim-scripts repos
-Plugin 'L9'
-Plugin 'minibufexpl.vim'
-Plugin 'FuzzyFinder'
-Plugin 'OmniCppComplete'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'tomasr/molokai'
-Plugin 'majutsushi/tagbar'
-Plugin 'vim-scripts/TaskList.vim'
-Plugin 'kien/ctrlp.vim'
-Plugin 'Lokaltop/vim-powerline'
-Plugin 'nathanaelkane/vim-indent-guides'
-Plugin 'bronson/vim-trailing-whitespace'
-Plugin 'Lokaltog/vim-easymotion'
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'SirVer/ultisnips'
-Plugin 'scrooloos/nerdcommenter'
-Plugin 'tpope/vim-surround'
-Plugin 'godlygeek/tabular'
-Plugin 'mileszs/ack.vim'
-"Plugin 'srooloose/syntastic'
-"Plugin 'terryma/vim-multiple-coursors'
-Plugin 'scrooloose/nerdtree'
-"Plugin 'vim-scripts/refactor'
+Bundle 'L9'
+Bundle 'minibufexpl.vim'
+Bundle 'FuzzyFinder'
+Bundle 'OmniCppComplete'
+Bundle 'altercation/vim-colors-solarized'
+Bundle 'tomasr/molokai'
+Bundle 'majutsushi/tagbar'
+Bundle 'vim-scripts/TaskList.vim'
+Bundle 'kien/ctrlp.vim'
+Bundle 'zhongxingzhi/vim-powerline'
+Bundle 'nathanaelkane/vim-indent-guides'
+Bundle 'bronson/vim-trailing-whitespace'
+Bundle 'Valloric/YouCompleteMe'
+Bundle 'SirVer/ultisnips'
+Bundle 'honza/vim-snippets'
+Bundle 'scrooloose/nerdcommenter'
+Bundle 'tpope/vim-surround'
+Bundle 'godlygeek/tabular'
+Bundle 'mileszs/ack.vim'
+Bundle 'whatot/gtags-cscope.vim'
+"Bundle 'srooloose/syntastic'
+"Bundle 'terryma/vim-multiple-coursors'
+Bundle 'scrooloose/nerdtree'
+"Bundle 'vim-scripts/refactor'
+Bundle 'zhongxingzhi/pyclewn'
+Bundle 'marijnh/tern_for_vim'
+Bundle 'tacahiroy/ctrlp-funky'
+
+call vundle#end()
+filetype plugin on
+filetype indent on
+" To ignore plugin indent changes, instead use:
+" "filetype plugin on
+" "
+" " Brief help
+" " :PluginList       - lists configured plugins
+" " :PluginInstall    - installs plugins; append `!` to update or just
+" :PluginUpdate
+" " :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" " :PluginClean      - confirms removal of unused plugins; append `!` to
+" auto-approve removal
+" "
+" " see :h vundle for more details or wiki for FAQ
+" " Put your non-Plugin stuff after this line
+
 
 syntax enable
 syntax on
-
+set foldmethod=syntax
+set nofoldenable
 "color scheme
 
 set t_Co=256 "开启256分辨率,终端更好看
@@ -50,12 +73,12 @@ set background=dark "由于这个配色方案在终端,选择黑色背景
 set shortmess=atI "去除开启vim的对话
 let g:solarized_termcolors=256
 let g:solarized_contrast="low"
-colorscheme solarized "使用著名的配色方案"
-hi Normal ctermbg=NONE "开启背景透明
 let g:solarized_termtrans=1
+colorscheme solarized "使用著名的配色方案"
 
+hi Normal ctermbg=NONE "开启背景透明
 "molokai
-let g:molokai_original = 1
+"let g:molokai_original = 1
 
 
 "set autoindent
@@ -81,35 +104,22 @@ let mapleader=","
 let g:mapleader=","
 
 
-filetype plugin on
-filetype indent on
-
 "autocmd FileType python set expandtab
 "autocmd FileType python set list
 "
-" Brief help
-" :PluginList          - list configured bundles
-" :PluginInstall(!)    - install(update) bundles
-" :PluginSearch(!) foo - search(or refresh cache first) for foo
-" :PluginClean(!)      - confirm(or auto-approve) removal of unused bundles
 "
-" see :h vundle for more details or wiki for FAQ
-" NOTE: comments after Plugin command are not allowed..
-"
+"""""""""""""""""""""""""""""""""""""""""""""
 """"""miniBufExpl"""""""""""""""""""""""""""""
-
 let g:miniBufExplMapWindowNavVim = 1
 let g:miniBufExplMapWindowNavArrows = 1
 let g:miniBufExplMapCTabSwitchBufs = 1
 let g:miniBufExplModSelTarget = 1
 
-"
-"
 
 " Enable omni completion.
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+"autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
@@ -132,6 +142,7 @@ set completeopt=menuone,menu,longest,preview
 
 set tags+=~/.vim/tags/cpp
 
+set cscopequickfix=c-,e-,d-,f-,g-,s-,t-
 
 
 " 自动补全配置
@@ -181,10 +192,10 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_python_checkers = ['flake8']
 let g:syntastic_python_checker_args = '--ignore=E501,E225'
 
-"let g:syntastic_cpp_include_dirs = ['/usr/include', '/usr/local/include']
+let g:syntastic_cpp_include_dirs = ['/usr/include', '/usr/local/include']
 let g:syntastic_cpp_remove_include_errors = 1
 let g:syntastic_cpp_check_header = 1
-"let g:syntastic_cpp_compiler = 'clang++'
+let g:syntastic_cpp_compiler = 'clang++'
 let g:syntastic_cpp_compiler_options = '-std=c++11 -stdlib=libstdc++'
 let g:syntastic_enable_balloons = 1 "whether to show balloons
 let g:syntastic_cpp_auto_refresh_includes = 1
@@ -230,6 +241,12 @@ let g:ctrlp_match_window_reversed=0
 let g:ctrlp_mruf_max=500
 let g:ctrlp_follow_symlinks=1
 
+nnoremap <Leader>fu :CtrlPFunky<Cr>
+" narrow the list down with a word under cursor
+nnoremap <Leader>fU :execute 'CtrlPFunky ' . expand('<cword>')<Cr>
+let g:ctrlp_funky_syntax_highlight = 1
+
+let g:ctrlp_extensions = ['funky']
 
 """"""""""""""""vim-indent-guides""""""""""""""""
 let g:indent_guides_enable_on_vim_startup = 0  " 默认关闭
@@ -258,9 +275,24 @@ let g:UltiSnipsSnippetDirectories=["bundle/vim-snippets/UltiSnips"]
 map <leader>td <Plug>TaskList
 
 
-"map <leader>em:call ExtractMethod()<CR>
-"map <leader>lp :call LocalVariableToParameter()<CR>
-"map <leader>rn :call RenameVariable()<CR>
-"map <leader>rm :call RemoveParameter()<CR>
-"map <leader>ro :call ReorderParameters()<CR>
-"map <leader>ic :call IntroduceConstant()<CR>
+"""""EasyMotion"""""""""""""""""""""""""""""
+" Gif config
+map <Leader>l <Plug>(easymotion-lineforward)
+map <Leader>j <Plug>(easymotion-j)
+map <Leader>k <Plug>(easymotion-k)
+map <Leader>h <Plug>(easymotion-linebackward)
+
+let g:EasyMotion_startofline = 0 " keep cursor column when JK motion
+
+" Gif config
+"map  / <Plug>(easymotion-sn)
+"omap / <Plug>(easymotion-tn)
+
+" These `n` & `N` mappings are options. You do not have to map `n` & `N` to
+" EasyMotion.
+" Without these mappings, `n` & `N` works fine. (These mappings just provide
+" different highlight method and have some other features )
+"map  n <Plug>(easymotion-next)
+"map  N <Plug>(easymotion-prev)
+nmap s <Plug>(easymotion-s2)
+nmap t <Plug>(easymotion-t2)
