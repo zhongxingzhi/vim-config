@@ -59,7 +59,7 @@ filetype indent on
 " "
 " " see :h vundle for more details or wiki for FAQ
 " " Put your non-Plugin stuff after this line
-
+" ctags --c++-kinds=+p --fields=+iaS --extra=+q --language-force=C++
 
 syntax enable
 syntax on
